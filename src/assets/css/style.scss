@@ -1550,20 +1550,35 @@ button:focus:not(:focus-visible) {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin: 0 -8px;
+  margin: 0;
   &-item {
     padding: 20px;
     border-radius: 10px;
     background: #fff;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-    width: calc(100% / 3 - 16px);
-    margin: 0 8px 16px;
+    margin: 0 0 16px 0;
+    width: 100%;
+    &__caption {
+      display: flex;
+      align-items: baseline;
+      margin: 0;
+      justify-content: space-between;
+      &_content {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        width: 100%;
+      }
+    }
     &__flex {
       display: flex;
       gap:16px;
-      margin: 15px 0;
+      margin: 0;
       img {
         width: 100%;
+        max-width: 80px;
+        margin: 0 auto;
+        display: block;
       }
       &_item {
         p {
@@ -1592,11 +1607,12 @@ button:focus:not(:focus-visible) {
       }
       &.status {
         display: inline-block;
-        padding: 8px 16px;
+        padding: 4px 10px;
         border-radius: 30px;
         background: $light-color;
         font-weight: 600;
         color: #000000;
+        white-space: nowrap;
         &-new {
           color: #000;
           background: #FF9109;
@@ -1623,6 +1639,56 @@ button:focus:not(:focus-visible) {
           line-height: 24px;
           color: #000;
           font-weight: 700;
+        }
+      }
+    }
+    &__block {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 0 0 10px 0;
+    }
+    &__values {
+      margin: 0;
+    }
+    &__pay {
+      display: flex;
+      gap: 4px;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-bottom: 10px;
+      min-width: 300px;
+      max-width: 300px;
+      margin: 0 16px 0 0;
+      .button-blue {
+        min-width: 180px;
+        text-align: center;
+        padding: 14px;
+        margin: 7px 0 0 0;
+      }
+      p {
+        &.status {
+          font-weight: 700;
+          padding: 0;
+          background: transparent;
+          margin: 0;
+          text-transform: uppercase;
+          &-nopay {
+            color: #a30f0f;
+          }
+          &-pay {
+            color: #1c9108;
+          }
+          &-complite {
+            color: #5D6668;
+          }
+        }
+        &.info {
+          font-size: 14px;
+          line-height: 20px;
+          color: #000;
+          font-weight: 600;
+          margin: 0;
         }
       }
     }
@@ -1655,6 +1721,21 @@ button:focus:not(:focus-visible) {
   }
 }
 
+.inside-block-success {
+  p.status {
+    padding: 8px 16px;
+    border-radius: 0;
+    font-weight: 600;
+    background: #FFEAD1;
+    color: #a30f0f;
+    text-transform: uppercase;
+    margin: 0 0 7px 0;
+  }
+  p.info {
+    font-weight: 600;
+  }
+} 
+
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1400px;
@@ -1663,12 +1744,27 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 1399px) {
-  .orders-item {
-    width: calc(100% / 2 - 16px);
-  }
   .warehouses-caption {
     max-width: 340px;
     min-width: 340px;
+  }
+  .orders-item__block {
+    display: block;
+  }
+  .orders-item {
+    width: calc(100% / 2 - 16px);
+    margin: 0 8px 16px;
+  }
+  .orders {
+    margin: 0 -8px;
+  }
+  .orders-item__caption {
+    display: block;
+  }
+  .orders-item__pay {
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0 0 10px 0;
   }
   .banner-block {
     margin: 0 60px;
@@ -1693,6 +1789,10 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 1199px) {
+  .orders-item {
+    width: calc(100% - 16px);
+    margin: 0 8px 16px;
+  }
   .pers-area__data {
     min-width: 280px;
     max-width: 280px;

@@ -1936,7 +1936,7 @@ button:focus:not(:focus-visible) {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin: 0 -8px;
+  margin: 0;
 }
 
 .orders-item {
@@ -1945,8 +1945,32 @@ button:focus:not(:focus-visible) {
   background: #fff;
   -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-  width: calc(100% / 3 - 16px);
-  margin: 0 8px 16px;
+  margin: 0 0 16px 0;
+  width: 100%;
+}
+
+.orders-item__caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.orders-item__caption_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
 .orders-item__flex {
@@ -1954,11 +1978,14 @@ button:focus:not(:focus-visible) {
   display: -ms-flexbox;
   display: flex;
   gap: 16px;
-  margin: 15px 0;
+  margin: 0;
 }
 
 .orders-item__flex img {
   width: 100%;
+  max-width: 80px;
+  margin: 0 auto;
+  display: block;
 }
 
 .orders-item__flex_item p {
@@ -1990,11 +2017,12 @@ button:focus:not(:focus-visible) {
 
 .orders-item p.status {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 4px 10px;
   border-radius: 30px;
   background: #E2F0F3;
   font-weight: 600;
   color: #000000;
+  white-space: nowrap;
 }
 
 .orders-item p.status-new {
@@ -2026,6 +2054,76 @@ button:focus:not(:focus-visible) {
   line-height: 24px;
   color: #000;
   font-weight: 700;
+}
+
+.orders-item__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 0 0 10px 0;
+}
+
+.orders-item__values {
+  margin: 0;
+}
+
+.orders-item__pay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 4px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  min-width: 300px;
+  max-width: 300px;
+  margin: 0 16px 0 0;
+}
+
+.orders-item__pay .button-blue {
+  min-width: 180px;
+  text-align: center;
+  padding: 14px;
+  margin: 7px 0 0 0;
+}
+
+.orders-item__pay p.status {
+  font-weight: 700;
+  padding: 0;
+  background: transparent;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.orders-item__pay p.status-nopay {
+  color: #a30f0f;
+}
+
+.orders-item__pay p.status-pay {
+  color: #1c9108;
+}
+
+.orders-item__pay p.status-complite {
+  color: #5D6668;
+}
+
+.orders-item__pay p.info {
+  font-size: 14px;
+  line-height: 20px;
+  color: #000;
+  font-weight: 600;
+  margin: 0;
 }
 
 .orders-item .button-edit {
@@ -2061,6 +2159,20 @@ button:focus:not(:focus-visible) {
   display: flex;
 }
 
+.inside-block-success p.status {
+  padding: 8px 16px;
+  border-radius: 0;
+  font-weight: 600;
+  background: #FFEAD1;
+  color: #a30f0f;
+  text-transform: uppercase;
+  margin: 0 0 7px 0;
+}
+
+.inside-block-success p.info {
+  font-weight: 600;
+}
+
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1400px;
@@ -2069,12 +2181,27 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 1399px) {
-  .orders-item {
-    width: calc(100% / 2 - 16px);
-  }
   .warehouses-caption {
     max-width: 340px;
     min-width: 340px;
+  }
+  .orders-item__block {
+    display: block;
+  }
+  .orders-item {
+    width: calc(100% / 2 - 16px);
+    margin: 0 8px 16px;
+  }
+  .orders {
+    margin: 0 -8px;
+  }
+  .orders-item__caption {
+    display: block;
+  }
+  .orders-item__pay {
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0 0 10px 0;
   }
   .banner-block {
     margin: 0 60px;
@@ -2099,6 +2226,10 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 1199px) {
+  .orders-item {
+    width: calc(100% - 16px);
+    margin: 0 8px 16px;
+  }
   .pers-area__data {
     min-width: 280px;
     max-width: 280px;

@@ -49,94 +49,165 @@
                 <h1>Ваши заказы</h1>
                 <div class="orders">
                   <div class="orders-item">
-                    <p class="title">Заказ от 10.10.2024</p>
-                    <p class="date">№ 12345</p>
-                    <p class="status status-new">Заявка создана, ожидаем груз </p>
-                    <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                    <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
-                    <div class="orders-item__flex">
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                    <div class="orders-item__caption"> 
+                      <div class="orders-item__caption_content">
+                        <p class="title">Заказ от 10.10.2024</p>
+                        <p class="date">№ 12345</p>
                       </div>
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                      <div class="orders-item__caption_info">
+                        <p class="status status-new">Заявка создана, ожидаем груз</p>
                       </div>
                     </div>
-                    <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024
-                        <button class="button-edit" type="button">изменить</button></span></p>
-                    <div class="form-group form-group__hidden">
-                      <input class="form-control" type="date" placeholder="Введите дату">
-                      <button class="button button-blue">Сохранить</button>
-                    </div>
-                  </div>
-                  <div class="orders-item">
-                    <p class="title">Заказ от 10.10.2024</p>
-                    <p class="date">№ 12345</p>
-                    <p class="status status-work">Груз принят </p>
-                    <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                    <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
-                    <div class="orders-item__flex">
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                    <div class="orders-item__block">
+                      <div class="orders-item__pay">
+                        <p class="status status-nopay">Ожидает оплаты</p>
+                        <p class="info">Ваш груз не будет отправлен без оплаты</p><a class="button button-blue" href="#">Оплатить </a>
                       </div>
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                      <div class="orders-item__block_item">
+                        <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
+                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                      </div>
+                      <div class="orders-item__flex">
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                        </div>
                       </div>
                     </div>
-                    <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024
-                        <button class="button-edit" type="button">изменить</button></span></p>
-                    <div class="form-group form-group__hidden">
-                      <input class="form-control" type="date" placeholder="Введите дату">
-                      <button class="button button-blue">Сохранить</button>
+                    <div class="orders-item__values">
+                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024
+                          <button class="button-edit" type="button">изменить</button></span></p>
+                      <div class="form-group form-group__hidden">
+                        <input class="form-control" type="date" placeholder="Введите дату">
+                        <button class="button button-blue">Сохранить</button>
+                      </div>
                     </div>
                   </div>
                   <div class="orders-item">
-                    <p class="title">Заказ от 10.10.2024</p>
-                    <p class="date">№ 12345</p>
-                    <p class="status status-progress">Груз в пути </p>
-                    <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                    <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
-                    <div class="orders-item__flex">
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                    <div class="orders-item__caption"> 
+                      <div class="orders-item__caption_content">
+                        <p class="title">Заказ от 10.10.2024</p>
+                        <p class="date">№ 12345</p>
                       </div>
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                      <div class="orders-item__caption_info">
+                        <p class="status status-work">Груз принят </p>
                       </div>
                     </div>
-                    <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024</span></p>
+                    <div class="orders-item__block">
+                      <div class="orders-item__pay">
+                        <p class="status status-nopay">Ожидает оплаты</p>
+                        <p class="info">Ваш груз не будет отправлен без оплаты</p><a class="button button-blue" href="#">Оплатить </a>
+                      </div>
+                      <div class="orders-item__block_item">
+                        <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
+                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                      </div>
+                      <div class="orders-item__flex">
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="orders-item__values">
+                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024
+                          <button class="button-edit" type="button">изменить</button></span></p>
+                      <div class="form-group form-group__hidden">
+                        <input class="form-control" type="date" placeholder="Введите дату">
+                        <button class="button button-blue">Сохранить		</button>
+                      </div>
+                    </div>
                   </div>
                   <div class="orders-item">
-                    <p class="title">Заказ от 10.10.2024</p>
-                    <p class="date">№ 12345</p>
-                    <p class="status">Доставлен </p>
-                    <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                    <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
-                    <div class="orders-item__flex">
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                    <div class="orders-item__caption"> 
+                      <div class="orders-item__caption_content">
+                        <p class="title">Заказ от 10.10.2024</p>
+                        <p class="date">№ 12345</p>
                       </div>
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                      <div class="orders-item__caption_info">
+                        <p class="status status-progress">Груз в пути  </p>
                       </div>
                     </div>
-                    <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024</span></p>
+                    <div class="orders-item__block">
+                      <div class="orders-item__pay">
+                        <p class="status status-pay">Оплачен</p>
+                      </div>
+                      <div class="orders-item__block_item">
+                        <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
+                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                      </div>
+                      <div class="orders-item__flex">
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="orders-item__values">
+                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024</span></p>
+                    </div>
                   </div>
                   <div class="orders-item">
-                    <p class="title">Заказ от 10.10.2024</p>
-                    <p class="date">№ 12345</p>
-                    <p class="status">Доставлен </p>
-                    <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                    <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
-                    <div class="orders-item__flex">
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                    <div class="orders-item__caption"> 
+                      <div class="orders-item__caption_content">
+                        <p class="title">Заказ от 10.10.2024</p>
+                        <p class="date">№ 12345</p>
                       </div>
-                      <div class="orders-item__flex_item">
-                        <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                      <div class="orders-item__caption_info">
+                        <p class="status">Доставлен </p>
                       </div>
                     </div>
-                    <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024</span></p>
+                    <div class="orders-item__block">
+                      <div class="orders-item__pay">
+                        <p class="status status-complite">Исполнен</p>
+                      </div>
+                      <div class="orders-item__block_item">
+                        <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
+                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                      </div>
+                      <div class="orders-item__flex">
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="orders-item">
+                    <div class="orders-item__caption"> 
+                      <div class="orders-item__caption_content">
+                        <p class="title">Заказ от 10.10.2024</p>
+                        <p class="date">№ 12345</p>
+                      </div>
+                      <div class="orders-item__caption_info">
+                        <p class="status">Доставлен </p>
+                      </div>
+                    </div>
+                    <div class="orders-item__block">
+                      <div class="orders-item__pay">
+                        <p class="status status-complite">Исполнен</p>
+                      </div>
+                      <div class="orders-item__block_item">
+                        <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
+                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                      </div>
+                      <div class="orders-item__flex">
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод поставки</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                        <div class="orders-item__flex_item">
+                          <p>Штрихкод коробов</p><img src="assets/images/st.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
