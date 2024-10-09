@@ -2670,7 +2670,7 @@ button:focus:not(:focus-visible) {
     display: none;
   }
   .header .button {
-    padding: 17px 6px;
+    padding: 17px 5px;
   }
   .main-menu {
     max-width: 100%;
