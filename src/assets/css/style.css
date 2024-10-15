@@ -165,7 +165,7 @@ a:hover {
   min-width: 84px;
   max-width: 84px;
   height: 84px;
-  background: #005357;
+  background: #ff953c;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,7 +189,8 @@ a:hover {
 }
 
 .header-logo__image svg path {
-  fill: #fff;
+  fill: #000;
+  stroke: #ff953c;
 }
 
 .header-logo__slogan {
@@ -197,7 +198,7 @@ a:hover {
   max-width: 115px;
   font-size: 13px;
   line-height: 14px;
-  color: #005357;
+  color: #000;
   display: block;
   font-weight: 400;
   margin: 0;
@@ -233,8 +234,7 @@ a:hover {
   padding: 4px 2px;
   background: #fff;
   margin: 0 20px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #D4E0E0;
   border-radius: 50px;
 }
 
@@ -260,7 +260,7 @@ a:hover {
 
 .main-menu__link:hover {
   color: #000;
-  background: #E2F0F3;
+  background: #b9dbdd;
 }
 
 .main-menu__link.active {
@@ -364,7 +364,7 @@ a:hover {
 }
 
 .banner {
-  background: #005357 url(../images/banner-bg.png) right center no-repeat;
+  background: #ff953c url(../images/banner-bg.png) right center no-repeat;
   background-size: contain;
   padding: 0;
   border-radius: 40px;
@@ -391,7 +391,7 @@ a:hover {
 .banner-block__text h1 {
   font-size: 32px;
   line-height: 44px;
-  color: #fff;
+  color: #000;
   margin: 0 0 10px 0;
   padding: 0;
   font-weight: 700;
@@ -400,7 +400,7 @@ a:hover {
 .banner-block__text p {
   font-size: 16px;
   line-height: 22px;
-  color: #B1D4D6;
+  color: #1e1e1e;
   font-weight: 400;
   margin: 0 0 30px 0;
   max-width: 360px;
@@ -432,7 +432,7 @@ h2 {
   font-weight: 700;
   line-height: 38px;
   text-align: left;
-  color: #005357;
+  color: #000;
   margin: 0 0 10px 0;
   padding: 0;
 }
@@ -476,18 +476,10 @@ h2 {
 
 .prices-block__item {
   margin: 0 8px;
-  background: #E2F0F3;
+  background: #b9dbdd;
   padding: 40px;
   border-radius: 40px;
   width: calc(100% / 2 - 16px);
-}
-
-.prices-block__item:last-child {
-  background: #FFEAD1;
-}
-
-.prices-block__item:last-child .item-image {
-  background: url(../images/small-pink-bg.svg) 0 0 no-repeat;
 }
 
 .prices-block__item .item-image {
@@ -581,7 +573,7 @@ h2 {
 
 .prices-block__info_block .item-text {
   width: 100%;
-  padding: 20px 0 20px 30px;
+  padding: 20px 30px;
 }
 
 .prices-block__info_block .item-text p {
@@ -618,7 +610,7 @@ h2 {
 }
 
 .calculator {
-  background: #E2F0F3;
+  background: #b9dbdd;
   border-radius: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -996,14 +988,10 @@ h2 {
 }
 
 .warehouses-item {
-  background: #E2F0F3;
+  background: #b9dbdd;
   border-radius: 40px;
   padding: 20px;
   width: calc(100% / 2 - 16px);
-}
-
-.warehouses-item:nth-of-type(even) {
-  background: #FFEAD1;
 }
 
 .warehouses-item__content {
@@ -1195,25 +1183,30 @@ h2 {
 }
 
 .footer {
-  padding: 60px 30px 44px;
+  padding: 44px 30px 44px;
   margin: 0 0 20px 0;
-  background: #005357;
+  background: #ff953c;
   border-radius: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .footer-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-width: 246px;
+  max-width: 246px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 0 30px 0;
-  margin: 0 0 30px 0;
-  border-bottom: 1px solid #A6CCCE;
+  padding: 0 30px 0 0;
+  margin: 0 30px 0 0;
+  border-right: 1px solid #000;
 }
 
 .footer-logo {
@@ -1250,7 +1243,7 @@ h2 {
 }
 
 .footer-logo__image svg path {
-  fill: #005357;
+  fill: #000;
 }
 
 .footer-logo__slogan {
@@ -1258,7 +1251,7 @@ h2 {
   max-width: 115px;
   font-size: 13px;
   line-height: 14px;
-  color: #fff;
+  color: #000;
   display: block;
   font-weight: 400;
   margin: 0;
@@ -1274,6 +1267,7 @@ h2 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 -8px;
+  width: 100%;
 }
 
 .footer-item {
@@ -1284,24 +1278,25 @@ h2 {
 .footer-item p {
   font-size: 14px;
   line-height: 16px;
-  color: #fff;
+  color: #000;
   margin: 0;
-  font-weight: 600;
+  max-width: 200px;
+  font-weight: 400;
 }
 
 .footer-item p a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 
 .footer-item p a:hover {
-  color: #B1D4D6;
-  text-decoration: none;
+  color: #000;
+  text-decoration: underline;
 }
 
 .footer-item p.note {
-  color: #B1D4D6;
-  font-weight: 400;
+  color: #000;
+  font-weight: 600;
   margin: 0 0 10px 0;
 }
 
@@ -1335,7 +1330,7 @@ h2 {
 .modal-content {
   border: 0px;
   border-radius: 40px;
-  background: #E2F0F3;
+  background: #b9dbdd;
   padding: 60px;
 }
 
@@ -1362,7 +1357,7 @@ button:focus:not(:focus-visible) {
 .modal-title {
   font-size: 28px;
   line-height: 38px;
-  color: #005357;
+  color: #000;
   padding: 0;
   margin: 0;
   font-weight: 700;
@@ -1979,6 +1974,8 @@ button:focus:not(:focus-visible) {
   display: flex;
   gap: 16px;
   margin: 0;
+  min-width: 266px;
+  max-width: 266px;
 }
 
 .orders-item__flex img {
@@ -2069,6 +2066,10 @@ button:focus:not(:focus-visible) {
   margin: 0 0 10px 0;
 }
 
+.orders-item__block_item {
+  width: 100%;
+}
+
 .orders-item__values {
   margin: 0;
 }
@@ -2086,14 +2087,19 @@ button:focus:not(:focus-visible) {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 10px;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 340px;
+  max-width: 340px;
   margin: 0 16px 0 0;
 }
 
-.orders-item__pay .button-blue {
-  min-width: 180px;
-  text-align: center;
+.orders-item__pay_buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.orders-item__pay_buttons .button {
   padding: 14px;
   margin: 7px 0 0 0;
 }
