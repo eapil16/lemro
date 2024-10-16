@@ -558,7 +558,7 @@ h2 {
 
 .prices-block__info_block {
   position: absolute;
-  background: #fff;
+  background: #b9dbdd;
   border-radius: 20px;
   bottom: 20px;
   left: 20px;
@@ -610,7 +610,7 @@ h2 {
 }
 
 .calculator {
-  background: #b9dbdd;
+  background: #f5f5f5;
   border-radius: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -651,6 +651,27 @@ h2 {
 
 .calculator-form .button {
   margin-top: 6px;
+}
+
+.inside-block__form .button {
+  width: 100%;
+}
+
+.inside-block__form_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form-control[readonly] {
+  background-color: #fff;
+  opacity: 1;
 }
 
 .form-group {
@@ -1185,7 +1206,7 @@ h2 {
 .footer {
   padding: 44px 30px 44px;
   margin: 0 0 20px 0;
-  background: #ff953c;
+  background: #f5f5f5;
   border-radius: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1223,7 +1244,7 @@ h2 {
   min-width: 84px;
   max-width: 84px;
   height: 84px;
-  background: #fff;
+  background: #ff953c;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1244,6 +1265,7 @@ h2 {
 
 .footer-logo__image svg path {
   fill: #000;
+  stroke: #ff953c;
 }
 
 .footer-logo__slogan {
@@ -1452,6 +1474,7 @@ button:focus:not(:focus-visible) {
 
 .inside-block__botton .button {
   width: 100%;
+  text-align: center;
 }
 
 .inside-block__botton .time {
@@ -2142,7 +2165,7 @@ button:focus:not(:focus-visible) {
   text-decoration: underline;
   font-weight: 600;
   display: inline-block;
-  margin: 0 0 0 10px;
+  margin: 0;
 }
 
 .orders-item .button-edit:hover {
@@ -2150,19 +2173,69 @@ button:focus:not(:focus-visible) {
   text-decoration: none;
 }
 
-.orders .form-group__hidden {
-  display: none;
-  gap: 10px;
-}
-
-.orders .form-group__hidden .button {
-  border-radius: 8px;
-}
-
-.orders .form-group__hidden.show {
+.orders .form-edit__hidden {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 155;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.orders .form-edit__hidden .form-edit__hidden_content {
+  margin: 20px 0;
+  border: 1px solid #D4E0E0;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  position: relative;
+}
+
+.orders .form-edit__hidden .form-edit__hidden_content p.title {
+  font-size: 28px;
+  line-height: 38px;
+  color: #000;
+  padding: 0;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+
+.orders .form-edit__hidden__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0;
+  border: 0;
+}
+
+.orders .form-edit__hidden .button {
+  border-radius: 8px;
+}
+
+.orders .form-edit__hidden.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.edit-open {
+  overflow: hidden;
 }
 
 .inside-block-success p.status {
@@ -2232,6 +2305,17 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 1199px) {
+  .footer {
+    display: block;
+  }
+  .footer-info {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0 0 20px 0;
+    margin: 0 0 20px 0;
+    border-right: 0;
+    border-bottom: 1px solid #000;
+  }
   .orders-item {
     width: calc(100% - 16px);
     margin: 0 8px 16px;
@@ -2337,6 +2421,9 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 991px) {
+  .main-menu {
+    border: 0px;
+  }
   .pers-area__flex {
     display: block;
   }
@@ -2406,6 +2493,9 @@ button:focus:not(:focus-visible) {
   .prices-block__info_block .item-image img {
     display: block;
   }
+  .warehouses-item__content {
+    padding: 20px 0;
+  }
   .prices-block__info {
     min-width: 100%;
     max-width: 100%;
@@ -2415,7 +2505,6 @@ button:focus:not(:focus-visible) {
   }
   .prices-block__info_block {
     position: initial;
-    background: #e2f0f3;
     padding: 0 20px 0 0;
   }
   .prices-block__flex {
@@ -2444,7 +2533,7 @@ button:focus:not(:focus-visible) {
   }
   .banner-block {
     display: block;
-    padding: 30px 20px;
+    padding: 30px 20px 0;
     margin: 0;
   }
   .main-section {
@@ -2454,7 +2543,10 @@ button:focus:not(:focus-visible) {
     max-width: 100%;
   }
   .banner-block__image {
-    display: none;
+    min-width: 260px;
+    max-width: 260px;
+    height: 282px;
+    margin: 0 auto;
   }
   .banner-block__text p {
     max-width: 100%;
@@ -2604,12 +2696,23 @@ button:focus:not(:focus-visible) {
     max-width: 540px;
   }
   .banner {
-    background: #005357 url(../images/banner-bg.png) right center no-repeat;
-    background-size: cover;
+    background: #ff953c url(../images/banner-bg-small.png) 50% 105% no-repeat;
+    background-size: 270px;
+  }
+  .banner-block__image {
+    margin: 30px auto 0;
   }
 }
 
 @media screen and (max-width: 575px) {
+  .orders .form-edit__hidden .form-edit__hidden_content {
+    margin: 20px 10px;
+    border: 1px solid #D4E0E0;
+    padding: 30px 20px 20px;
+  }
+  .footer {
+    margin: 0 0 10px 0;
+  }
   .pers-area__list_link {
     padding: 30px 20px;
   }

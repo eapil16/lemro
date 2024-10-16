@@ -23,7 +23,7 @@
 <path d="M175 66.8863V67.8863H176H191.36H192.36V66.8863V46.0189H198.004L209.975 67.3752L210.262 67.8863H210.848H227.604H229.323L228.474 66.3921L215.326 43.2628C218.762 41.5765 221.462 39.1883 223.394 36.0971L223.396 36.0945C225.437 32.8065 226.432 28.8505 226.432 24.2746C226.432 19.7617 225.458 15.805 223.47 12.4434C221.484 9.06606 218.657 6.48046 215.015 4.69295C211.394 2.88438 207.128 2 202.252 2H176H175V3V66.8863ZM198.932 31.8531H192.36V16.4466H198.932C201.138 16.4466 202.931 16.7671 204.345 17.3657L204.345 17.3658L204.355 17.3701C205.753 17.9432 206.767 18.7903 207.452 19.9015L207.452 19.9015L207.455 19.9075C208.137 20.9969 208.513 22.4315 208.513 24.2746C208.513 26.117 208.137 27.5366 207.461 28.6013C206.783 29.6485 205.772 30.4601 204.369 31.0177C202.969 31.5612 201.168 31.8531 198.932 31.8531Z" fill="white" stroke="white" stroke-width="2"/>
 </svg></span><span class="header-logo__slogan">быстрая доставка на маркетплейсы</span></a>
             <div class="header-info"> 
-              <button class="button button-white" type="button" data-bs-toggle="modal" data-bs-target="#statusModal">Статус отправления</button><a class="personal-area" href="#"> <img src="assets/images/user.svg" alt=""></a>
+              <button class="button button-blue" type="button" data-bs-toggle="modal" data-bs-target="#statusModal">Статус отправления</button><a class="personal-area" href="#"> <img src="assets/images/user.svg" alt=""></a>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
                       </div>
                       <div class="orders-item__block_item">
                         <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                        <p>  <span class="item">Количество в заказе: </span><span class="value">12</span></p>
                         <p>  <span class="item">Время сдачи: </span><span class="value">19:00-20:00</span></p>
                         <p>  <span class="item">Номер ворот: </span><span class="value">25</span></p>
                       </div>
@@ -80,11 +80,60 @@
                       </div>
                     </div>
                     <div class="orders-item__values">
-                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024
-                          <button class="button-edit" type="button">изменить</button></span></p>
-                      <div class="form-group form-group__hidden">
-                        <input class="form-control" type="date" placeholder="Введите дату">
-                        <button class="button button-blue">Сохранить</button>
+                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024</span></p>
+                      <button class="button-edit" type="button">Редактировать заказ</button>
+                      <div class="form-edit__hidden">
+                        <div class="form-edit__hidden_content">
+                          <button class="form-edit__hidden__close btn-close"></button>
+                          <p class="title">Редактировать заказ</p>
+                          <div class="form-group">
+                            <label>Дата сдачи</label>
+                            <input class="form-control" type="date" placeholder="Введите дату">
+                          </div>
+                          <div class="form-group">
+                            <label>Направление</label>
+                            <select name="city-appointments"> 
+                              <option value="">Казань</option>
+                              <option value="">Тула</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Количество в заказе</label>
+                            <input class="form-control" type="text" value="12">
+                          </div><div class="form-group">
+<label>Штрихкод поставки</label>
+<div class="form-item form-file">
+<input type="file" class="form-input actual-btn" id="button-1">
+<div class="form-file__content">
+<span class="form-file__label">Файл не выбран</span> 
+<span class="form-file__chosen">файл</span>
+</div>
+<label class="form-file__button" for="button-1">Выберите файл</label>
+<button class="form-file__clear">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20">
+<path id="Path_763" data-name="Path 763" d="M5.455,20A2.858,2.858,0,0,1,2.646,17.61L.894,7.525A1.1,1.1,0,1,1,3.056,7.14L4.808,17.226a.659.659,0,0,0,.648.551h7.087a.66.66,0,0,0,.649-.551L14.944,7.14a1.1,1.1,0,1,1,2.161.384L15.353,17.61A2.859,2.859,0,0,1,12.543,20H5.455ZM16.9,5.777H1.1a1.111,1.111,0,0,1,0-2.222H4.939V2.888A2.875,2.875,0,0,1,7.793,0h2.415a2.875,2.875,0,0,1,2.853,2.889v.667H16.9a1.111,1.111,0,0,1,0,2.222M7.134,3.555h3.732V2.888a.664.664,0,0,0-.659-.667H7.793a.663.663,0,0,0-.659.667Z" transform="translate(0 0.001)" fill="#a2b6c2"/>
+</svg>
+</button>
+</div>
+</div>
+<div class="form-group">
+<label>Штрихкод коробов</label>
+<div class="form-item form-file">
+<input type="file" class="form-input actual-btn" id="button-3">
+<div class="form-file__content">
+<span class="form-file__label">Файл не выбран</span> 
+<span class="form-file__chosen">файл</span>
+</div>
+<label class="form-file__button" for="button-3">Выберите файл</label>
+<button class="form-file__clear">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20">
+<path id="Path_763" data-name="Path 763" d="M5.455,20A2.858,2.858,0,0,1,2.646,17.61L.894,7.525A1.1,1.1,0,1,1,3.056,7.14L4.808,17.226a.659.659,0,0,0,.648.551h7.087a.66.66,0,0,0,.649-.551L14.944,7.14a1.1,1.1,0,1,1,2.161.384L15.353,17.61A2.859,2.859,0,0,1,12.543,20H5.455ZM16.9,5.777H1.1a1.111,1.111,0,0,1,0-2.222H4.939V2.888A2.875,2.875,0,0,1,7.793,0h2.415a2.875,2.875,0,0,1,2.853,2.889v.667H16.9a1.111,1.111,0,0,1,0,2.222M7.134,3.555h3.732V2.888a.664.664,0,0,0-.659-.667H7.793a.663.663,0,0,0-.659.667Z" transform="translate(0 0.001)" fill="#a2b6c2"/>
+</svg>
+</button>
+</div>
+</div>
+                          <button class="button button-blue">Сохранить</button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -106,7 +155,7 @@
                       </div>
                       <div class="orders-item__block_item">
                         <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                        <p>  <span class="item">Количество в заказе: </span><span class="value">22</span></p>
                         <p>  <span class="item">Время сдачи: </span><span class="value">19:00-20:00</span></p>
                         <p>  <span class="item">Номер ворот: </span><span class="value">25</span></p>
                       </div>
@@ -120,11 +169,60 @@
                       </div>
                     </div>
                     <div class="orders-item__values">
-                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">08.10.2024
-                          <button class="button-edit" type="button">изменить</button></span></p>
-                      <div class="form-group form-group__hidden">
-                        <input class="form-control" type="date" placeholder="Введите дату">
-                        <button class="button button-blue">Сохранить		</button>
+                      <p class="time"><span class="item">Дата сдачи: </span><span class="value">18.10.2024</span></p>
+                      <button class="button-edit" type="button">Редактировать заказ</button>
+                      <div class="form-edit__hidden">
+                        <div class="form-edit__hidden_content">
+                          <button class="form-edit__hidden__close btn-close"></button>
+                          <p class="title">Редактировать заказ</p>
+                          <div class="form-group">
+                            <label>Дата сдачи</label>
+                            <input class="form-control" type="date" placeholder="Введите дату">
+                          </div>
+                          <div class="form-group">
+                            <label>Направление</label>
+                            <select name="city-appointments"> 
+                              <option value="">Казань</option>
+                              <option value="">Тула</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Количество в заказе</label>
+                            <input class="form-control" type="text" value="22">
+                          </div><div class="form-group">
+<label>Штрихкод поставки</label>
+<div class="form-item form-file">
+<input type="file" class="form-input actual-btn" id="button-1">
+<div class="form-file__content">
+<span class="form-file__label">Файл не выбран</span> 
+<span class="form-file__chosen">файл</span>
+</div>
+<label class="form-file__button" for="button-1">Выберите файл</label>
+<button class="form-file__clear">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20">
+<path id="Path_763" data-name="Path 763" d="M5.455,20A2.858,2.858,0,0,1,2.646,17.61L.894,7.525A1.1,1.1,0,1,1,3.056,7.14L4.808,17.226a.659.659,0,0,0,.648.551h7.087a.66.66,0,0,0,.649-.551L14.944,7.14a1.1,1.1,0,1,1,2.161.384L15.353,17.61A2.859,2.859,0,0,1,12.543,20H5.455ZM16.9,5.777H1.1a1.111,1.111,0,0,1,0-2.222H4.939V2.888A2.875,2.875,0,0,1,7.793,0h2.415a2.875,2.875,0,0,1,2.853,2.889v.667H16.9a1.111,1.111,0,0,1,0,2.222M7.134,3.555h3.732V2.888a.664.664,0,0,0-.659-.667H7.793a.663.663,0,0,0-.659.667Z" transform="translate(0 0.001)" fill="#a2b6c2"/>
+</svg>
+</button>
+</div>
+</div>
+<div class="form-group">
+<label>Штрихкод коробов</label>
+<div class="form-item form-file">
+<input type="file" class="form-input actual-btn" id="button-3">
+<div class="form-file__content">
+<span class="form-file__label">Файл не выбран</span> 
+<span class="form-file__chosen">файл</span>
+</div>
+<label class="form-file__button" for="button-3">Выберите файл</label>
+<button class="form-file__clear">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20">
+<path id="Path_763" data-name="Path 763" d="M5.455,20A2.858,2.858,0,0,1,2.646,17.61L.894,7.525A1.1,1.1,0,1,1,3.056,7.14L4.808,17.226a.659.659,0,0,0,.648.551h7.087a.66.66,0,0,0,.649-.551L14.944,7.14a1.1,1.1,0,1,1,2.161.384L15.353,17.61A2.859,2.859,0,0,1,12.543,20H5.455ZM16.9,5.777H1.1a1.111,1.111,0,0,1,0-2.222H4.939V2.888A2.875,2.875,0,0,1,7.793,0h2.415a2.875,2.875,0,0,1,2.853,2.889v.667H16.9a1.111,1.111,0,0,1,0,2.222M7.134,3.555h3.732V2.888a.664.664,0,0,0-.659-.667H7.793a.663.663,0,0,0-.659.667Z" transform="translate(0 0.001)" fill="#a2b6c2"/>
+</svg>
+</button>
+</div>
+</div>
+                          <button class="button button-blue">Сохранить	</button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -144,7 +242,7 @@
                       </div>
                       <div class="orders-item__block_item">
                         <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                        <p>  <span class="item">Количество в заказе: </span><span class="value">12</span></p>
                         <p>  <span class="item">Mарка машины: </span><span class="value">красненькая</span></p>
                         <p>  <span class="item">Номер машины: </span><span class="value">X000XX</span></p>
                         <p>  <span class="item">Водитель: </span><span class="value">Константинопольский К.К.</span></p>
@@ -178,7 +276,7 @@
                       </div>
                       <div class="orders-item__block_item">
                         <p> <span class="item">Направление: </span><span class="value">Москва - Казань</span></p>
-                        <p>  <span class="item">Количество в заказе:</span><span class="value">12</span></p>
+                        <p>  <span class="item">Количество в заказе: </span><span class="value">12</span></p>
                       </div>
                       <div class="orders-item__flex">
                         <div class="orders-item__flex_item">

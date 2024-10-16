@@ -73,7 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('#calculator').scrollIntoView({ behavior: 'smooth' });
     };
     if (e.target.closest('.button-edit')) {
-      e.target.closest('.orders-item').querySelector('.form-group__hidden').classList.add('show');
+      document.querySelector('body').classList.add('edit-open');
+      e.target.closest('.orders-item').querySelector('.form-edit__hidden').classList.add('show');
+    };
+    if (e.target.closest('.form-edit__hidden__close')) {
+      document.querySelector('body').classList.remove('edit-open');
+      document.querySelectorAll('.form-edit__hidden').forEach(item => item.classList.remove('show'));
     };
   });
 

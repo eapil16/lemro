@@ -31,42 +31,52 @@
       <main class="main-section"> 
         <div class="container">
           <div class="inside-block">
-            <h1>Регистрация</h1>
+            <h1>Войти</h1>
             <form class="inside-block__form">
-              <div class="inside-block__item">
-                <h2>Личная информация</h2>
-                <div class="form-group">
-                  <label>ФИО*</label>
-                  <input class="form-control" type="text" placeholder="Введите свое имя" required>
-                </div>
-                <div class="form-group form-group__error">
-                  <label>Email*</label>
-                  <input class="form-control" type="text" placeholder="Введите свой email" value="Oшибка" required>
-                </div>
-                <div class="form-group">
-                  <label>Телефон*</label>
-                  <input class="form-control phone" type="text" placeholder="Введите свой телефон" required>
-                </div>
-                <div class="form-group">
-                  <label>Юридическо лицо*</label>
-                  <input class="form-control" type="text" placeholder="Введите название юр лица" required>
-                </div>
+              <div class="form-group">
+                <label>Номер телефона</label>
+                <input class="form-control phone" type="text" placeholder="Номер телефона" required>
               </div>
-              <div class="inside-block__item">
-                <h2>Пароль</h2>
-                <div class="form-group">
-                  <label>Пароль*</label>
-                  <input class="form-control" type="password" placeholder="Придумайте пароль" required>
-                </div>
-                <div class="form-group">
-                  <label>Подтверждение пароля*</label>
-                  <input class="form-control" type="password" placeholder="Введите пароль еще раз" required>
-                </div>
+              <div class="form-group">
+                <button class="button button-blue" type="submit">Получить код</button>
+              </div>
+              <div class="inside-block__form_flex">
+                <div class="form-group"><a class="forgot-password" href="entrance.html">Войти с паролем</a></div>
               </div>
               <div class="inside-block__botton"> 
-                <button class="button button-blue" type="submit">Регистрация</button><a class="button button-light" href="entrance.html">Я уже зарегистрирован</a>
-                <p class="agreement">Нажимая кнопку «Регистрация», Вы принимаете условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>.</p>
+                <p class="agreement">Нажимая кнопку «Войти», Вы принимаете условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>.</p>
               </div>
+            </form>
+            <form class="inside-block__form">
+              <div class="form-group">
+                <label>Введите код из СМС</label>
+                <input class="form-control" type="text" placeholder="" required>
+              </div>
+              <div class="form-group">
+                <p class="code">Получить новый код можно через 00:56</p>
+              </div>
+              <div class="inside-block__form_flex"><a class="forgot-password" href="#">Вернуться назад</a></div>
+            </form>
+            <form class="inside-block__form">
+              <div class="form-group">
+                <label>Введите код из СМС</label>
+                <input class="form-control" type="text" placeholder="" required>
+              </div>
+              <div class="form-group">
+                <button class="button button-blue" type="submit">Выслать код повторно</button>
+              </div>
+              <div class="inside-block__form_flex"><a class="forgot-password" href="#">Вернуться назад</a></div>
+            </form>
+            <form class="inside-block__form">
+              <div class="form-group form-group__error">
+                <label>Введите код из СМС</label>
+                <input class="form-control" type="text" placeholder="" value="123" required>
+                <p class="text-error">Введен неправильный код</p>
+              </div>
+              <div class="form-group">
+                <p class="code">Получить новый код можно через 00:56</p>
+              </div>
+              <div class="inside-block__form_flex"><a class="forgot-password" href="#">Вернуться назад</a></div>
             </form>
           </div>
         </div>
