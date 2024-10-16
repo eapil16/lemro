@@ -207,11 +207,11 @@ $second-color: #FFEAD1;
     border-radius: 50px;
     &:hover { 
       color: $black-color;
-      background: #b9dbdd;
+      background: #D4E0E0;
     }
     &.active {
-      color: $white-color;
-      background: $main-color;
+      color: $black-color;
+      background: #7d9b869e;
     }
   }
 }
@@ -238,8 +238,8 @@ $second-color: #FFEAD1;
     }
   }
   &-blue {
-    color: $white-color;
-    background: $main-color;
+    color: #000;
+    background: #7d9b869e;
     &:hover {
       background: #008086;
       color: $white-color;
@@ -251,6 +251,14 @@ $second-color: #FFEAD1;
     color: #5D6668;
     &:hover {
       color: $main-color;
+    }
+  }
+  &-orange {
+    background: #ff953c;
+    color: #000;
+    &:hover {
+      background: rgba(255, 149, 60, 0.75);
+      color: #000;
     }
   }
 }
@@ -375,7 +383,7 @@ h2 {
     }
     &__item {
       margin: 0 8px;
-      background: #b9dbdd;
+      background: #7d9b869e;
       padding: 40px;
       border-radius: 40px;
       width: calc(100% / 2 - 16px);
@@ -446,7 +454,7 @@ h2 {
       }
       &_block {
         position: absolute;
-        background: #b9dbdd;
+        background: #aec1b4;
         border-radius: 20px;
         bottom: 20px;
         left: 20px;
@@ -491,7 +499,7 @@ h2 {
 }
 
 .calculator {
-  background: #f5f5f5;
+  background: #7d9b869e;
   border-radius: 40px;
   display: flex;
   &-image {
@@ -817,7 +825,7 @@ h2 {
     flex-wrap: wrap;
   }
   &-item {
-    background: #b9dbdd;
+    background: #7d9b869e;
     border-radius: 40px;
     padding: 20px;
     width: calc(100% / 2 - 16px);
@@ -976,7 +984,7 @@ h2 {
 .footer {
   padding: 44px 30px 44px;
   margin: 0 0 20px 0;
-  background: #f5f5f5;
+  background: #7d9b869e;
   border-radius: 40px;
   display: flex;
   &-info {
@@ -1081,7 +1089,7 @@ h2 {
 .modal-content {
   border: 0px;
   border-radius: 40px;
-  background: #b9dbdd;
+  background: #aec1b4;
   padding: 60px;
 }
 
@@ -1330,7 +1338,7 @@ button:focus:not(:focus-visible) {
   bottom: 3px;
   max-width: 44px;
   min-width: 44px;
-  background: $light-color;
+  background: #7d9b869e;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -1347,7 +1355,7 @@ button:focus:not(:focus-visible) {
   transition: all 0.3s ease;
 }
 .form-file__clear svg path {
-  fill: #a2b6c2;
+  fill: #000;
   transition: all 0.3s ease;
 }
 .form-file__clear:hover svg path {
@@ -1363,7 +1371,7 @@ button:focus:not(:focus-visible) {
 }
 .form-group label.form-file__button {
   padding: 12px 20px;
-  background: $light-color;
+  background: #7d9b869e;
   border-radius: 6px;
   font-size: 14px;
   line-height: 19px;
@@ -1385,7 +1393,7 @@ button:focus:not(:focus-visible) {
 }
 
 .form-group label.form-file__button:hover {
-  background: $main-color;
+  background: #008086;
   color: $white-color;
 }
 
@@ -1420,9 +1428,9 @@ button:focus:not(:focus-visible) {
       &:hover {
         box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
         .item-icon {
-          background: $main-color;
+          background: #ff953c;
           svg path {
-            fill: $white-color;
+            fill: #000;
           }
         }
         .item-text {
@@ -1437,11 +1445,11 @@ button:focus:not(:focus-visible) {
         justify-content: center;
         margin: 0 0 16px 0;
         border-radius: 50%;
-        background: $light-color;
+        background: #7d9b869e;
         transition: $transition;
         svg {
           path {
-            fill: $main-color;
+            fill: #000;
             transition: $transition;
           }
         }
@@ -1479,11 +1487,11 @@ button:focus:not(:focus-visible) {
       justify-content: center;
       margin: 0 0 16px 0;
       border-radius: 50%;
-      background: $light-color;
+      background: #7d9b869e;
       transition: $transition;
       svg {
         path {
-          fill: $main-color;
+          fill: #000;
           transition: $transition;
         }
       }
@@ -1502,12 +1510,12 @@ button:focus:not(:focus-visible) {
       padding: 0;
       font-size: 14px;
       line-height: 19px;
-      color: $main-color;
+      color:  #aec1b4;
       text-decoration: none;
       font-weight: 600;
       background: transparent;
       &:hover {
-        color: $main-color;
+        color: #000;
         text-decoration: underline;
       }
     }
@@ -1798,8 +1806,8 @@ button:focus:not(:focus-visible) {
     padding: 8px 16px;
     border-radius: 0;
     font-weight: 600;
-    background: #FFEAD1;
-    color: #a30f0f;
+    background: #aec1b4;
+    color: #000;
     text-transform: uppercase;
     margin: 0 0 7px 0;
   }
@@ -2027,8 +2035,16 @@ button:focus:not(:focus-visible) {
   .hidd {
     overflow: hidden;
   }
+  .calculator {
+    display: block;
+  }
   .calculator-image {
-    display: none;
+    height: 330px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 330px;
+    border-radius: 20px;
+    overflow: hidden;
   }
   .warehouses-block {
     display: block;
@@ -2263,6 +2279,13 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 575px) {
+  .block-invert {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .calculator-image {
+    display: none;
+  }
   .orders .form-edit__hidden .form-edit__hidden_content {
     margin: 20px 10px;
     border: 1px solid #D4E0E0;
