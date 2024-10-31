@@ -100,18 +100,22 @@
                     <h2>Калькулятор доставки до маркетплейсов</h2>
                     <div class="form-group">
                       <label>Куда нужно доставить груз</label>
-                      <div class="radiobox">
-                        <p> 
+                      <div class="radiobox-market">
+                        <p class="wb"> 
                           <input type="radio" name="calculator-market" id="market-1" checked>
                           <label for="market-1">Wildberries</label>
                         </p>
-                        <p> 
+                        <p class="oz"> 
                           <input type="radio" name="calculator-market" id="market-2">
                           <label for="market-2">OZON</label>
                         </p>
-                        <p> 
+                        <p class="mm">
                           <input type="radio" name="calculator-market" id="market-3">
                           <label for="market-3">Мегамаркет</label>
+                        </p>
+                        <p class="sm">
+                          <input type="radio" name="calculator-market" id="market-4">
+                          <label for="market-4">Сбермаркет</label>
                         </p>
                       </div>
                     </div>
@@ -119,29 +123,85 @@
                       <label>Тип отправления</label>
                       <div class="radiobox">
                         <p> 
-                          <input type="radio" name="calculator-type" id="type-1" checked>
+                          <input type="radio" name="calculator-type" value="box" id="type-1" checked>
                           <label for="type-1">Короб</label>
                         </p>
                         <p> 
-                          <input type="radio" name="calculator-type" id="type-2">
+                          <input type="radio" name="calculator-type" value="pallet" id="type-2">
                           <label for="type-2">Паллет</label>
+                        </p>
+                        <p> 
+                          <input type="radio" name="calculator-type" value="cube" id="type-3">
+                          <label for="type-3">Куб</label>
                         </p>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label>Габариты груза (в метрах)</label>
-                      <div class="form-group__flex"> 
-                        <div class="form-group form-group__error">
-                          <label>Длинна*</label>
-                          <input class="form-control" type="text" value="Oшибка" placeholder="Д, м">
+                      <select>
+                        <option value="">Монопаллет</option>
+                        <option value="">QR-поставка</option>
+                        <option value="">Суперсейф</option>
+                      </select>
+                    </div>
+                    <div class="show" id="box-block">
+                      <div class="form-group">
+                        <label>Габариты груза (в метрах)</label>
+                        <div class="form-group__flex"> 
+                          <div class="form-group">
+                            <label>Длинна, м*</label>
+                            <input class="form-control size-control" type="text" name="length-box" placeholder="Д, м" data-required>
+                          </div>
+                          <div class="form-group">
+                            <label>Ширина, м*</label>
+                            <input class="form-control size-control" type="text" name="width-box" placeholder="Ш, м" data-required>
+                          </div>
+                          <div class="form-group">
+                            <label>Высота, м*</label>
+                            <input class="form-control size-control" type="text" name="height-box" placeholder="В, м" data-required>
+                          </div>
+                        </div>
+                        <div class="form-group__flex form-group__flex_column">
+                          <div class="form-group">
+                            <label>Вес груза, кг*</label>
+                            <input class="form-control size-control length-control" type="text" name="weight-box" placeholder="Введите вес" data-required>
+                          </div>
+                          <div class="form-group">
+                            <label>Объем груза, м. куб.*</label>
+                            <input class="form-control size-control width-control" type="text" placeholder="Введите обьем" data-required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="pallet-block">
+                      <div class="form-group">
+                        <label>Габариты груза </label>
+                        <div class="form-group__flex form-group__flex_column"> 
+                          <div class="form-group">
+                            <label>Количество мест*</label>
+                            <input class="form-control" type="text" name="count-pallet" placeholder="Введите количество" data-required>
+                          </div>
+                          <div class="form-group">
+                            <label>Общий вес, кг*</label>
+                            <input class="form-control size-control" type="text" name="weight-pallet" placeholder="Введите вес" data-required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="cube-block"> 
+                      <div class="form-group">
+                        <label>Габариты груза </label>
+                        <div class="form-group__flex form-group__flex_column"> 
+                          <div class="form-group">
+                            <label>Количество кубов, кв м*</label>
+                            <input class="form-control size-control" type="text" name="count-cube" placeholder="Введите количество" data-required>
+                          </div>
+                          <div class="form-group">
+                            <label>Общий вес, кг*</label>
+                            <input class="form-control size-control" type="text" name="weight-cube" placeholder="Введите вес" data-required>
+                          </div>
                         </div>
                         <div class="form-group">
-                          <label>Ширина*</label>
-                          <input class="form-control" type="text" placeholder="Ш, м">
-                        </div>
-                        <div class="form-group">
-                          <label>Высота*</label>
-                          <input class="form-control" type="text" placeholder="В, м">
+                          <input class="form-control size-control" type="text" placeholder="Количество коробов" data-required>
                         </div>
                       </div>
                     </div>
@@ -154,9 +214,13 @@
                         </div>
                         <div class="form-group">
                           <label>Город назначения*</label>
-                          <select name="city-appointments"> 
-                            <option value="">Казань</option>
-                            <option value="">Тула</option>
+                          <select name="city-appointments">
+                            <option class="option-hide" value="none">Выберите город</option>
+                            <option value="kazan" data-box="500" data-pallet="5000" data-cube="5000">Казань</option>
+                            <option value="tula" data-box="400" data-pallet="2500" data-cube="3500">Тула (Алексин)</option>
+                            <option value="koledino" data-box="300" data-pallet="1500" data-cube="2500">Коледино</option>
+                            <option value="elektrostal" data-box="350" data-pallet="2000" data-cube="3500">Электросталь</option>
+                            <option value="krasnodar" data-box="600" data-pallet="6000" data-cube="6000">Краснодар</option>
                           </select>
                         </div>
                       </div>
@@ -168,12 +232,13 @@
                       <p class="text-error">заполните правильно</p>
                     </div>
                     <div class="form-group form-group__total">
-                      <button class="button button-orange" type="submit">Рассчитать доставку</button>
+                      <button class="button button-orange" id="button-calc" type="button">Рассчитать доставку</button>
                       <div class="item-total">
                         <p>Стоимость доставки:</p>
-                        <p class="price">36 500 руб.</p>
+                        <p class="price" id="totalPrice">0<span>руб.</span></p>
                       </div>
                     </div>
+                    <div class="form-group"><a class="button button-orange" id="to-request" href="request.html">Оформить заявку</a></div>
                   </form>
                 </div>
               </div>

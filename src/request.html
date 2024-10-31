@@ -59,10 +59,10 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Перечень поставщиков</label>
-                <input class="form-control" type="text" placeholder="Укажите поставщиков">
+                <div class="block-suppliers"></div>
+                <button class="button-add" type="button">Добавить поставщика</button>
               </div><div class="form-group">
-<label>Штрихкод поставки</label>
+<label>Штрихкод поставки*</label>
 <div class="form-item form-file">
 <input type="file" class="form-input actual-btn" id="button-1">
 <div class="form-file__content">
@@ -91,7 +91,7 @@
 </div>
 </div>
 <div class="form-group">
-<label>Штрихкод коробов</label>
+<label>Штрихкод коробов*</label>
 <div class="form-item form-file">
 <input type="file" class="form-input actual-btn" id="button-3">
 <div class="form-file__content">
@@ -106,8 +106,16 @@
 </button>
 </div>
 </div>
+              <div class="form-group">
+                <label>Дата привоза груза*</label>
+                <input class="form-control" type="Date" placeholder="Введите дату" required>
+              </div>
               <div class="inside-block__botton"> 
                 <p class="time">Если провоз груза в день отправки машины, то привоз груза до определенного времени.</p>
+                <div class="chekbox">
+                   <input type="checkbox" id="id-1">
+                  <label for="id-1">Согласен на <a href="#">обработку персональных данных</a> и <a href="#">условиями доставки груза</a></label>
+                </div>
                 <button class="button button-orange" type="submit">Оформить заявку</button>
                 <p class="agreement agreement-indent">Нажимая кнопку «Регистрация», Вы принимаете условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>.</p>
               </div>
