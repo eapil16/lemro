@@ -179,10 +179,20 @@ document.addEventListener('DOMContentLoaded', () => {
   fileGroup2.appendChild(fileLabel2);
   fileGroup2.appendChild(createFileInput(2));
 
+  let nameButton = document.createElement('div');
+  nameButton.classList.add('form-group');
+  let button = document.createElement('button');
+  button.classList.add('button');
+  button.classList.add('button-blue');
+  button.classList.add('form-file__delete');
+  button.innerHTML = `Удалить`;
+  nameButton.appendChild(button);
+
   targetForm.appendChild(nameGroup); 
   targetForm.appendChild(countGroup); 
   targetForm.appendChild(fileGroup1); 
   targetForm.appendChild(fileGroup2); 
+  targetForm.appendChild(nameButton); 
 
   targetBlock.appendChild(targetForm);
 
@@ -237,6 +247,16 @@ function bindFileInputEvents() {
       $('.fixed-menu').slideUp(300);
       $('body').removeClass('hidd');
       $('.menu-toggle-cont').removeClass('menu-toggle-cont_active');
+    }
+    if (e.target.closest('.form-file__delete')) {
+      const target = e.target.closest('.block-suppliers__item');
+
+      target.remove();
+
+      const blocks = document.querySelectorAll('.block-suppliers__item');
+      if (blocks.length === 0) {
+        document.querySelector('.button-add').removeAttribute('disabled');
+      }
     }
     if (e.target.closest('.to-calculate')) {
       document.querySelector('#calculator').scrollIntoView({ behavior: 'smooth' });
@@ -341,16 +361,19 @@ function bindFileInputEvents() {
           boxContent.classList.add('show');
           indpalletContent.classList.remove('show');
           cubeContent.classList.remove('show');
+          document.querySelector('.form-group__type').classList.remove('show');
         } 
         if (input.value === 'pallet') {
           boxContent.classList.remove('show');
           indpalletContent.classList.add('show');
           cubeContent.classList.remove('show');
+          document.querySelector('.form-group__type').classList.add('show');
         } 
         if (input.value === 'cube') {  
           boxContent.classList.remove('show');
           indpalletContent.classList.remove('show');
           cubeContent.classList.add('show');
+          document.querySelector('.form-group__type').classList.remove('show');
         } 
     });
   });
@@ -403,18 +426,24 @@ function bindFileInputEvents() {
     const inputsNumbres = document.querySelectorAll('input.size-control');
     inputsNumbres.forEach(input => {
       input.addEventListener("input", (event) => {
-        // Удаляем все символы, кроме цифр и точки
-        let value = event.target.value.replace(/[^0-9.]/g, "");
+        let value = event.target.value;
+    
+        // Заменяем все запятые на точки
+        value = value.replace(/,/g, ".");
+    
+        // Убираем все символы, кроме цифр и точки
+        value = value.replace(/[^0-9.]/g, "");
     
         // Ограничиваем количество точек до одной
         const parts = value.split(".");
         if (parts.length > 2) {
-            value = parts[0] + "." + parts[1];
+          value = parts[0] + "." + parts[1];  // оставляем только одну точку
         }
     
         event.target.value = value;
       });
-    })
+    });
+    
 
     // Функция для расчета объема коробки
     function calculateBoxVolume() {
@@ -428,41 +457,82 @@ function bindFileInputEvents() {
       const height = parseFloat(document.querySelector('input[name="height-box"]').value) || 0;
       const weight = parseFloat(document.querySelector('input[name="weight-box"]').value) || 0;
   
+      // Рассчитываем объем
+      let volume = length * width * height;
   
-      const volume = (length * width * height).toFixed(3);
-      console.log('volume', volume);
-
+      // Округляем объем до 3 знаков после запятой
+      volume = volume.toFixed(3);  // округляем до 3 знаков после запятой
+  
+      // Записываем объем в соответствующий input
+      const volumeInput = document.querySelector('input.form-control.size-control.width-control');
+      volumeInput.value = volume;  // Округленный объем до 3 знаков
+  
+      // console.log('Volume:', volume);
+  
+      // Проверяем выбранный город
       const citySelect = document.querySelector('select[name="city-appointments"]');
       if (!checkCitySelection(citySelect)) {
-        return;
+          return;
       }
+  
       const selectedOption = citySelect.options[citySelect.selectedIndex];
       const box = parseFloat(selectedOption.getAttribute('data-box')) || 0;
       const cube = parseFloat(selectedOption.getAttribute('data-cube')) || 0;
-      
+  
       let totalPrice = 0;
+      // Если объем меньше или равен 0.1, используем стоимость за коробку
       if (volume <= 0.1) {
           totalPrice = box;
       } else {
-          let cubesCount = Math.ceil(volume);
+          // В противном случае, рассчитываем стоимость по кубам
+          let cubesCount = volume; // здесь мы все равно округляем до целых, потому что это количество кубов
           totalPrice = cubesCount * cube;
       }
   
+      // Учитываем дополнительную стоимость за вес
       if (weight > 500) {
           const extraWeight = weight - 500;
           totalPrice += extraWeight * 4;
       }
   
+      // Выводим итоговую стоимость
       const totalBlock = document.querySelector('#totalPrice');
       totalBlock.textContent = totalPrice.toFixed(2);
       document.querySelector('.item-total').classList.add('show');
+      document.querySelector('#to-request').classList.add('show')
   }
+  
+  
+  function updateBoxVolume() {
+    const lengthInput = document.querySelector('input[name="length-box"]');
+    const widthInput = document.querySelector('input[name="width-box"]');
+    const heightInput = document.querySelector('input[name="height-box"]');
+  
+    const length = parseFloat(lengthInput.value) || 0;
+    const width = parseFloat(widthInput.value) || 0;
+    const height = parseFloat(heightInput.value) || 0;
+
+    if (length > 0 && width > 0 && height > 0) {
+        let volume = length * width * height;
+
+        volume = Math.ceil(volume * 1000) / 1000;
+
+        const volumeInput = document.querySelector('input.form-control.size-control.width-control');
+        volumeInput.value = volume.toFixed(3);  
+
+    }
+  }
+
+  document.querySelector('input[name="length-box"]').addEventListener('input', updateBoxVolume);
+  document.querySelector('input[name="width-box"]').addEventListener('input', updateBoxVolume);
+  document.querySelector('input[name="height-box"]').addEventListener('input', updateBoxVolume);
+
   
     // Функция проверки выбранного города
     function checkCitySelection(citySelect) {
       if (citySelect.value === "none") {
           citySelect.parentNode.classList.add("error-city"); 
-          console.log("Пожалуйста, выберите город назначения.");
+          // console.log("Пожалуйста, выберите город назначения.");
           return false;
       } else {
           citySelect.parentNode.classList.remove("error-city"); 
@@ -475,23 +545,28 @@ function bindFileInputEvents() {
   function calculateCubeVolume() {
     const cubeInputs = document.querySelectorAll('#cube-block .form-control');
 
+    // Проверяем, что все обязательные поля заполнены
     if (!checkRequiredFields(cubeInputs)) {
         return;
     }
 
-    const countCube = Math.ceil(parseFloat(document.querySelector('input[name="count-cube"]').value) || 0);
+    // Получаем количество кубов, без округления
+    const countCube = parseFloat(document.querySelector('input[name="count-cube"]').value) || 0;
     const citySelect = document.querySelector('select[name="city-appointments"]');
 
+    // Проверяем, выбран ли город
     if (!checkCitySelection(citySelect)) {
         return;
     }
 
     const selectedOption = citySelect.options[citySelect.selectedIndex];
-    const cube = parseFloat(selectedOption.getAttribute('data-cube')) || 0;
-    
-    let sumObject = (Math.ceil(countCube) * cube).toFixed(2);
+    const cubePrice = parseFloat(selectedOption.getAttribute('data-cube')) || 0;
 
-    const weightCube = Math.ceil(parseFloat(document.querySelector('input[name="weight-cube"]').value) || 0);
+    // Вычисляем стоимость без округления
+    let sumObject = (countCube * cubePrice).toFixed(2);
+
+    // Получаем вес куба и проверяем на превышение 500 кг
+    const weightCube = parseFloat(document.querySelector('input[name="weight-cube"]').value) || 0;
 
     if (weightCube > 500) {
         let excessWeight = weightCube - 500;
@@ -499,11 +574,13 @@ function bindFileInputEvents() {
         sumObject = parseFloat((parseFloat(sumObject) + additionalCost)).toFixed(2);
     }
 
-    const blockTolal = document.querySelector('#totalPrice');
-    blockTolal.textContent =  `${sumObject} руб.`; 
+    // Отображаем итоговую стоимость
+    const blockTotal = document.querySelector('#totalPrice');
+    blockTotal.textContent = `${sumObject} руб.`;
     document.querySelector('.item-total').classList.add('show');
     document.querySelector('#to-request').classList.add('show');
-  }
+}
+
 
 
   // Функция для расчета объема типа "Паллет"
@@ -530,19 +607,21 @@ function bindFileInputEvents() {
     let sumObject = (countPallet * pallet).toFixed(2);
 
     const weightPallet = Math.ceil(parseFloat(weightPalletInput.value) || 0);
+    const maxWeight = countPallet * 500;
 
-    if (weightPallet > 500) {
-        let excessWeight = weightPallet - 500;
+    if (weightPallet > maxWeight) {
+        let excessWeight = weightPallet - maxWeight;
         let additionalCost = excessWeight * 4;
         sumObject = parseFloat((parseFloat(sumObject) + additionalCost)).toFixed(2);
     }
 
     const blockTotal = document.querySelector('#totalPrice');
-    blockTotal.textContent = `${sumObject} руб.`;
+    blockTotal.textContent =  `${sumObject} руб.`;
     document.querySelector('.item-total').classList.add('show');
     document.querySelector('#to-request').classList.add('show');
-    console.log('sumObject:', parseFloat(sumObject));
+    // console.log('sumObject:', parseFloat(sumObject));
   }
+
 
     calcButton.addEventListener("click", e => {
       e.preventDefault();

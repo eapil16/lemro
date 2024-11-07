@@ -2010,6 +2010,13 @@ button:focus:not(:focus-visible) {
   }
 }
 
+.form-group__type {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
 .item-total {
   opacity: 0;
   visibility: hidden;

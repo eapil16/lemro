@@ -2474,6 +2474,14 @@ button:focus:not(:focus-visible) {
   display: block;
 }
 
+.form-group__type {
+  display: none;
+}
+
+.form-group__type.show {
+  display: block;
+}
+
 .item-total {
   opacity: 0;
   visibility: hidden;
