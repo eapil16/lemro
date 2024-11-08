@@ -96,7 +96,7 @@
               <div class="calculator">
                 <div class="calculator-image"> <img src="assets/images/calculator.png" alt=""></div>
                 <div class="calculator-block"> 
-                  <form class="calculator-form">
+                  <form class="calculator-form" action="some url" method="POST">
                     <h2>Калькулятор доставки до маркетплейсов</h2>
                     <div class="form-group">
                       <label>Куда нужно доставить груз</label>
@@ -138,10 +138,10 @@
                     </div>
                     <div class="form-group form-group__type">
                       <select>
-                        <option value="">Короб</option>
-                        <option value="">Монопаллет</option>
-                        <option value="">QR-поставка</option>
-                        <option value="">Суперсейф</option>
+                        <option value="type-box">Короб</option>
+                        <option value="type-monopallet">Монопаллет</option>
+                        <option value="type-qr">QR-поставка</option>
+                        <option value="type-safe">Суперсейф</option>
                       </select>
                     </div>
                     <div class="show" id="box-block">
@@ -168,7 +168,7 @@
                           </div>
                           <div class="form-group">
                             <label>Объем груза, м. куб.*</label>
-                            <input class="form-control size-control width-control" type="text" placeholder="Обьем" data-required readonly>
+                            <input class="form-control size-control width-control" type="text" name="volume-box" placeholder="Обьем" data-required readonly>
                           </div>
                         </div>
                       </div>
@@ -202,7 +202,7 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <input class="form-control size-control" type="text" placeholder="Количество коробов" data-required>
+                          <input class="form-control size-control" type="text" name="count-cube" placeholder="Количество коробов" data-required>
                         </div>
                       </div>
                     </div>
@@ -211,7 +211,7 @@
                       <div class="form-group__flex form-group__flex_column">
                         <div class="form-group">
                           <label>Город отправления*</label>
-                          <input class="form-control" type="text" value="Подольск" readonly>
+                          <input class="form-control" type="text" name="city-departure" value="Подольск" readonly>
                         </div>
                         <div class="form-group">
                           <label>Город назначения*</label>
@@ -228,7 +228,7 @@
                     </div>
                     <div class="form-group form-group__date">
                       <label>Дата поставки на маркетплейс*</label>
-                      <input class="form-control" type="date" placeholder="дд.мм.гггг">
+                      <input class="form-control" type="date" name="delivery-date" placeholder="дд.мм.гггг">
                       <p class="info">После 15 часов заявки принимаются на завтра</p>
                       <p class="text-error">заполните правильно</p>
                     </div>

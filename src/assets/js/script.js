@@ -652,4 +652,42 @@ function bindFileInputEvents() {
 
   }
 
+  const buttonSendData =document.getElementById('to-request');
+  if (buttonSendData) {
+    buttonSendData.addEventListener('click', function (e) {
+      e.preventDefault();
+      const form = document.querySelector('.calculator-form');
+      const formData = new FormData(form);
+      
+      const totalPrice = document.getElementById('totalPrice').textContent;
+      formData.append('totalPrice', totalPrice);
+
+      if (formData) {
+        sendDataToServer(formData, form);
+      }  
+    });
+
+    async function sendDataToServer(formData, form) {
+      console.log("Отправка данных на сервер..., ", form.action);
+      try {
+        const response = await fetch('form.action', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+  
+        if (response.ok) {
+          document.getElementById('responseMessage').textContent = 'Сообщение доставлено.';
+        } else {
+          document.getElementById('responseMessage').textContent = 'Ошибка доставки сообщения.';
+        }
+      } catch (error) {
+        console.error("Ошибка:", error);
+        console.log("Не удалось отправить данные. Проверьте подключение к серверу.");
+      }
+    }
+  }
+
 });
