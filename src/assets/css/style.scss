@@ -505,7 +505,7 @@ h2 {
   &-image {
     min-width: 692px;
     max-width: 692px;
-    min-height: 1050px;
+    min-height: 930px;
     img {
       width: 100%;
       height: 100%;
@@ -1891,11 +1891,11 @@ button:focus:not(:focus-visible) {
   color: #000;
   font-weight: 600;
   border: 0;
-  background: #7d9b869e url(../images/plus.svg) 15px 15px no-repeat;
+  background: #ff953c url(../images/plus.svg) 15px 15px no-repeat;
   border-radius: 8px;
   transition: all 400ms ease-in-out;
   &:hover {
-    background: #008086 url(../images/plus.svg) 15px 15px no-repeat;
+    background: rgba(255, 149, 60, 0.75) url(../images/plus.svg) 15px 15px no-repeat;
   }
   &:disabled {
     opacity: 0.5;
@@ -2436,6 +2436,12 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 767px) {
+  .item-total {
+    display: none;
+  }
+  .item-total.show {
+    display: block;
+  }
   .orders-item {
     width: calc(100% - 16px);
   }
@@ -2483,6 +2489,15 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 575px) {
+  .radiobox-market input[type="radio"] + label {
+    padding: 10px;
+  }
+  .calculator {
+    overflow: hidden;
+  }
+  .radiobox p {
+    margin-bottom: 6px;
+  }
   .block-invert {
     display: flex;
     flex-direction: column-reverse;
