@@ -420,23 +420,62 @@ function bindFileInputEvents() {
     keyupEvents(inputsTotal);
 
     const inputsNumbres = document.querySelectorAll('input.size-control');
+
+    // inputsNumbres.forEach(input => {
+    //   input.addEventListener("input", (event) => {
+    //     let value = event.target.value;
+    
+    //     value = value.replace(/,/g, ".");
+    
+    //     if (value.startsWith(".")) {
+    //       value = "0" + value;
+    //     }
+    
+    //     value = value.replace(/[^0-9.]/g, "");
+    
+    //     const parts = value.split(".");
+    //     if (parts.length > 2) {
+    //       value = parts[0] + "." + parts[1];
+    //     }
+    
+    //     event.target.value = value;
+    //   });
+    // });
+
     inputsNumbres.forEach(input => {
       input.addEventListener("input", (event) => {
         let value = event.target.value;
     
         value = value.replace(/,/g, ".");
     
+        if (value.startsWith(".")) {
+          value = "0" + value;
+        }
+    
         value = value.replace(/[^0-9.]/g, "");
+    
+        value = value.replace(/^0+(?=\d)/, "");
     
         const parts = value.split(".");
         if (parts.length > 2) {
-          value = parts[0] + "." + parts[1];  
+          value = parts[0] + "." + parts[1];
         }
     
         event.target.value = value;
       });
     });
     
+    const inputs = document.querySelectorAll("input.form-control.input-integer");
+
+    inputs.forEach(input => {
+      input.addEventListener("input", (event) => {
+        let value = event.target.value;
+
+        value = value.replace(/[^0-9]/g, "");
+
+        event.target.value = value;
+      });
+    });
 
     // Функция для расчета объема коробки
     function calculateBoxVolume() {
@@ -493,7 +532,6 @@ function bindFileInputEvents() {
       const length = parseFloat(lengthInput.value) || 0;
       const width = parseFloat(widthInput.value) || 0;
       const height = parseFloat(heightInput.value) || 0;
-
       if (length > 0 && width > 0 && height > 0) {
           let volume = length * width * height;
 
