@@ -429,7 +429,7 @@ h2 {
           font-weight: 700;
           line-height: 38px;
           text-align: left;
-          margin: 0 0 40px 0;
+          margin: 0;
           color: #000;
         }
       }
@@ -442,7 +442,7 @@ h2 {
       min-width: 456px;
       max-width: 456px;
       margin: 0 0 0 16px;
-      height: 612px;
+      height: 524px;
       position: relative;
       border-radius: 40px;
       overflow: hidden;
@@ -567,9 +567,14 @@ h2 {
     display: none;
   }
   &__error {
+    ::-webkit-input-placeholder {color:rgb(163, 15, 15);}
+      ::-moz-placeholder          {color:rgb(163, 15, 15);}
+      :-moz-placeholder           {color:rgb(163, 15, 15);}
+      :-ms-input-placeholder      {color:rgb(163, 15, 15);}
     .form-control {
       border-color: rgb(163, 15, 15) !important;
       color: rgb(163, 15, 15) !important;
+      
     }
     p.text-error {
       font-size: 14px;
@@ -689,7 +694,9 @@ h2 {
   border-radius: 50%;
   z-index: 10;
 }
-
+.header-info .button-blue:hover {
+  background: #ff953c;
+}
 .radiobox input[type="radio"] + label:hover {
   border-color: $main-color;
 }
@@ -748,7 +755,11 @@ h2 {
     border-radius: 8px;
   }
 }
-
+.calculator {
+  .form-control {
+    border: 2px solid #C4D4D4;
+  }
+}
 .form-control {
   display: block;
   width: 100%;
@@ -2055,7 +2066,7 @@ button:focus:not(:focus-visible) {
   }
   .prices-block__info {
     min-width: 390px;
-    height: 628px;
+    height: 540px;
   }
   .prices-block__item {
     padding: 40px 30px;
@@ -2073,6 +2084,7 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width: 1199px) {
+  
   .footer {
     display: block;
   }
@@ -2177,9 +2189,6 @@ button:focus:not(:focus-visible) {
   }
   .prices-block__item .item-text {
     min-height: auto;
-  }
-  .prices-block__item p.price {
-    margin: 0 0 20px 0;
   }
   .prices-block__info {
     min-width: 456px;
