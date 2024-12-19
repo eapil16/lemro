@@ -20,3 +20,13 @@ cov-pt*
 **/test/temp
 .release.json
 package-lock.json
+/assets
+/inc
+*.php
+/readme.txt
+/screenshot.png
+/style-rtl.css
+/style.css
+/LICENSE
+/languages
+/acf-json

@@ -99,12 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
     inputName.setAttribute('type', 'text');
     inputName.setAttribute('placeholder', 'Укажите поставщика');
     inputName.setAttribute('required', 'required');
+    inputName.setAttribute('name', `supplier[${indexButton}][]`);
 
     let inputCount = document.createElement('input');
     inputCount.classList.add('form-control');
     inputCount.setAttribute('type', 'text');
     inputCount.setAttribute('placeholder', 'Количество коробов');
     inputCount.setAttribute('required', 'required');
+    inputCount.setAttribute('name', `s_count_box[${indexButton}][]`);
 
 
     function createFileInput(index) {
@@ -113,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       inputFile.setAttribute('type', 'file');
       inputFile.setAttribute('id', `button-${indexButton}-${index}`);
       inputFile.setAttribute('required', 'required');
+      inputFile.setAttribute('name', `file_${index}[${indexButton}][]`);
 
       let formFileContent = document.createElement('div');
       formFileContent.classList.add('form-file__content');
@@ -524,6 +527,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const totalBlock = document.querySelector('#totalPrice');
       totalBlock.textContent = totalPrice.toFixed(2);
+      const inputPrice = document.querySelector('#inputPrice');
+      inputPrice.value = totalPrice.toFixed(2);
       document.querySelector('.item-total').classList.add('show');
       document.querySelector('#to-request').classList.add('show')
     }
@@ -596,6 +601,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const blockTotal = document.querySelector('#totalPrice');
       blockTotal.textContent = `${sumObject} руб.`;
+      const inputPrice = document.querySelector('#inputPrice');
+      inputPrice.value = sumObject;
       document.querySelector('.item-total').classList.add('show');
       document.querySelector('#to-request').classList.add('show');
     }
@@ -632,8 +639,11 @@ document.addEventListener('DOMContentLoaded', () => {
         sumObject = parseFloat((parseFloat(sumObject) + additionalCost)).toFixed(2);
       }
 
+      console.log(sumObject);
       const blockTotal = document.querySelector('#totalPrice');
       blockTotal.textContent = `${sumObject} руб.`;
+      const inputPrice = document.querySelector('#inputPrice');
+      inputPrice.value = sumObject;
       document.querySelector('.item-total').classList.add('show');
       document.querySelector('#to-request').classList.add('show');
     }
@@ -694,42 +704,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  const buttonSendData = document.getElementById('to-request');
-  if (buttonSendData) {
-    buttonSendData.addEventListener('click', function (e) {
-      e.preventDefault();
-      const form = document.querySelector('.calculator-form');
-      const formData = new FormData(form);
+  // const buttonSendData = document.getElementById('to-request');
+  // if (buttonSendData) {
+  //   buttonSendData.addEventListener('click', function (e) {
+  //     e.preventDefault();
+  //     const form = document.querySelector('.calculator-form');
+  //     const formData = new FormData(form);
 
-      const totalPrice = document.getElementById('totalPrice').textContent;
-      formData.append('totalPrice', totalPrice);
+  //     const totalPrice = document.getElementById('totalPrice').textContent;
+  //     formData.append('totalPrice', totalPrice);
 
-      if (formData) {
-        sendDataToServer(formData, form);
-      }
-    });
+  //     if (formData) {
+  //       sendDataToServer(formData, form);
+  //     }
+  //   });
 
-    async function sendDataToServer(formData, form) {
-      console.log("Отправка данных на сервер..., ", form.action);
-      try {
-        const response = await fetch('form.action', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
+  //   async function sendDataToServer(formData, form) {
+  //     console.log("Отправка данных на сервер..., ", form.action);
+  //     try {
+  //       const response = await fetch('form.action', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json'
+  //         },
+  //         body: JSON.stringify(formData)
+  //       });
 
-        if (response.ok) {
-          document.getElementById('responseMessage').textContent = 'Сообщение доставлено.';
-        } else {
-          document.getElementById('responseMessage').textContent = 'Ошибка доставки сообщения.';
-        }
-      } catch (error) {
-        console.error("Ошибка:", error);
-        console.log("Не удалось отправить данные. Проверьте подключение к серверу.");
-      }
-    }
-  }
+  //       if (response.ok) {
+  //         document.getElementById('responseMessage').textContent = 'Сообщение доставлено.';
+  //       } else {
+  //         document.getElementById('responseMessage').textContent = 'Ошибка доставки сообщения.';
+  //       }
+  //     } catch (error) {
+  //       console.error("Ошибка:", error);
+  //       console.log("Не удалось отправить данные. Проверьте подключение к серверу.");
+  //     }
+  //   }
+  // }
 
 });
