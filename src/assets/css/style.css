@@ -302,7 +302,7 @@ a:hover {
 }
 
 .button-blue:hover {
-  background: #008086;
+  background: #ff953c;
   color: #fff;
 }
 
@@ -910,7 +910,7 @@ h2 {
   position: relative;
   background: #fff;
   border-radius: 0;
-  border: 2px solid transparent;
+  border: 5px solid transparent;
   -webkit-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
 }
@@ -1813,7 +1813,7 @@ button:focus:not(:focus-visible) {
 }
 
 .form-group label.form-file__button:hover {
-  background: #008086;
+  background: #ff953c;
   color: #fff;
 }
 
@@ -2101,6 +2101,7 @@ button:focus:not(:focus-visible) {
   margin: 0;
   min-width: 266px;
   max-width: 266px;
+  flex-wrap: wrap;
 }
 
 .orders-item__flex img {
@@ -2108,6 +2109,15 @@ button:focus:not(:focus-visible) {
   max-width: 80px;
   margin: 0 auto;
   display: block;
+}
+
+.orders-item__flex_mp {
+  width: 100%;
+}
+
+.orders-item__flex_mp img {
+  margin: 0;
+  width: 80px;
 }
 
 .orders-item__flex_item p {
@@ -2153,13 +2163,13 @@ button:focus:not(:focus-visible) {
 }
 
 .orders-item p.status-work {
-  background: #FFEAD1;
+  background: #7d9b869e;
   color: #000;
 }
 
 .orders-item p.status-progress {
-  background: #005357;
-  color: #fff;
+  background: #7d9b869e;
+  color: #000;
 }
 
 .orders-item p span.item {

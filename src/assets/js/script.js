@@ -103,7 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let inputCount = document.createElement('input');
     inputCount.classList.add('form-control');
-    inputCount.setAttribute('type', 'text');
+    inputCount.setAttribute('type', 'number');
+    inputCount.setAttribute('min', 1);
     inputCount.setAttribute('placeholder', 'Количество коробов');
     inputCount.setAttribute('required', 'required');
     inputCount.setAttribute('name', `s_count_box[${indexButton}][]`);
@@ -116,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       inputFile.setAttribute('id', `button-${indexButton}-${index}`);
       inputFile.setAttribute('required', 'required');
       inputFile.setAttribute('name', `file_${index}[${indexButton}][]`);
+      inputFile.setAttribute('accept', 'application/pdf');
 
       let formFileContent = document.createElement('div');
       formFileContent.classList.add('form-file__content');
@@ -175,14 +177,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let fileGroup1 = document.createElement('div');
     fileGroup1.classList.add('form-group');
     let fileLabel1 = document.createElement('label');
-    fileLabel1.textContent = 'Фото документа';
+    fileLabel1.textContent = 'Штрихкод поставки';
     fileGroup1.appendChild(fileLabel1);
     fileGroup1.appendChild(createFileInput(1));
 
     let fileGroup2 = document.createElement('div');
     fileGroup2.classList.add('form-group');
     let fileLabel2 = document.createElement('label');
-    fileLabel2.textContent = 'Фото упаковки';
+    fileLabel2.textContent = 'Штрихкод коробов';
     fileGroup2.appendChild(fileLabel2);
     fileGroup2.appendChild(createFileInput(2));
 
@@ -470,6 +472,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         event.target.value = value;
       });
+
+      input.addEventListener("blur", (event) => {  // When user leaves input
+        let numValue = parseFloat(event.target.value);
+
+        if (!isNaN(numValue) && numValue < 0.1) {
+          event.target.value = "0.1"; // Set minimum value
+        }
+      });
     });
 
     const inputs = document.querySelectorAll("input.form-control.input-integer");
@@ -525,10 +535,14 @@ document.addEventListener('DOMContentLoaded', () => {
         totalPrice += extraWeight * 4;
       }
 
-      const totalBlock = document.querySelector('#totalPrice');
-      totalBlock.textContent = totalPrice.toFixed(2);
+      const additionalPrice = parseFloat(document.querySelector('#deliveryPrice').value);
+      const blockTotal = document.querySelector('#totalPrice');
+      blockTotal.textContent = `${(parseFloat(totalPrice) + additionalPrice).toFixed(2)} руб.`;
       const inputPrice = document.querySelector('#inputPrice');
       inputPrice.value = totalPrice.toFixed(2);
+      var event = new Event('change');
+      inputPrice.dispatchEvent(event);
+
       document.querySelector('.item-total').classList.add('show');
       document.querySelector('#to-request').classList.add('show')
     }
@@ -599,10 +613,15 @@ document.addEventListener('DOMContentLoaded', () => {
         sumObject = parseFloat((parseFloat(sumObject) + additionalCost)).toFixed(2);
       }
 
+      const additionalPrice = parseFloat(document.querySelector('#deliveryPrice').value);
       const blockTotal = document.querySelector('#totalPrice');
-      blockTotal.textContent = `${sumObject} руб.`;
+
+      blockTotal.textContent = `${(parseFloat(sumObject) + additionalPrice).toFixed(2)} руб.`;
       const inputPrice = document.querySelector('#inputPrice');
       inputPrice.value = sumObject;
+      var event = new Event('change');
+      inputPrice.dispatchEvent(event);
+
       document.querySelector('.item-total').classList.add('show');
       document.querySelector('#to-request').classList.add('show');
     }
@@ -639,11 +658,14 @@ document.addEventListener('DOMContentLoaded', () => {
         sumObject = parseFloat((parseFloat(sumObject) + additionalCost)).toFixed(2);
       }
 
-      console.log(sumObject);
+      const additionalPrice = parseFloat(document.querySelector('#deliveryPrice').value);
       const blockTotal = document.querySelector('#totalPrice');
-      blockTotal.textContent = `${sumObject} руб.`;
+      blockTotal.textContent = `${(parseFloat(sumObject) + additionalPrice).toFixed(2)} руб.`;
       const inputPrice = document.querySelector('#inputPrice');
       inputPrice.value = sumObject;
+      var event = new Event('change');
+      inputPrice.dispatchEvent(event);
+
       document.querySelector('.item-total').classList.add('show');
       document.querySelector('#to-request').classList.add('show');
     }
